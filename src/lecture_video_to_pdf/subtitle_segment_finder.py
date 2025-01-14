@@ -173,7 +173,7 @@ class SubtitleSegmentFinder:
 if __name__ == "__main__":
 
     def test1():
-        parser = SubtitleWebVTTParser("../tests/subtitles/subtitles_2.vtt")
+        parser = SubtitleWebVTTParser("../../tests/subtitles/subtitles_2.vtt")
         parts = parser.get_subtitle_parts()
         segment_finder = SubtitleSegmentFinder(parts)
 
@@ -197,7 +197,7 @@ if __name__ == "__main__":
             print("-----------------------")
 
     def test2():
-        parser = SubtitleSRTParser("../tests/subtitles/subtitles_7.srt")
+        parser = SubtitleSRTParser("../../tests/subtitles/subtitles_7.srt")
         parts = parser.get_subtitle_parts()
         print(len(parts))
         segment_finder = SubtitleSegmentFinder(parts)

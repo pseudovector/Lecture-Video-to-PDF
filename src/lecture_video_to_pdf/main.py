@@ -117,7 +117,9 @@ class CommandLineArgRunner:
         printer = ContentSegmentPdfBuilder()
         printer.generate_pdf(video_subtitle_pages, output_filepath)
 
-
-if __name__ == "__main__":
+def main():
     runner = CommandLineArgRunner()
     runner.run(sys.argv[1:])
+
+if __name__ == "__main__":
+    main()

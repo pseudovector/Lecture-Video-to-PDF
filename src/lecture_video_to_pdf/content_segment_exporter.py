@@ -63,14 +63,14 @@ class ContentSegmentPdfBuilder:
 if __name__ == "__main__":
     # Get the selected frames
     selected_frames_data = VideoSegmentFinder().get_best_segment_frames(
-        "../tests/videos/input_1.mp4"
+        "../../tests/videos/input_1.mp4"
     )
     frame_nums = sorted(selected_frames_data.keys())
     selected_frames = [selected_frames_data[i]["frame"] for i in frame_nums]
 
     # Get the subtitles for each frame
     pager = SubtitleSegmentFinder(
-        SubtitleWebVTTParser("../tests/subtitles/subtitles_1.vtt").get_subtitle_parts()
+        SubtitleWebVTTParser("../../tests/subtitles/subtitles_1.vtt").get_subtitle_parts()
     )
     subtitle_breaks = [selected_frames_data[i]["timestamp"] for i in frame_nums]
     pages = pager.get_subtitle_segments(subtitle_breaks)

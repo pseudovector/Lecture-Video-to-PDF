@@ -55,7 +55,7 @@ class VideoSegmentFinder:
         self.min_change = min_change
 
     def get_best_segment_frames(self, video_file):
-        ''' Finds a list of best possible video segments 
+        ''' Finds a list of best possible video segments
         It returns a map, where the key is the frame number, and the value is the frame data
 
         The frame data is of this format:
@@ -84,7 +84,7 @@ class VideoSegmentFinder:
 
     def get_segment_frames_with_stats(self, video_file, save_stats_for_all_frames=True):
         ''' Returns a list of frames for the best possible video segments (refer to get_best_segment_frames())
-        
+
         It also outputs statistics on all frames, where the statistic on frame i is:
         {
             "timestamp": the timestamp of frame i
@@ -199,4 +199,4 @@ class VideoSegmentFinder:
 
 if __name__ == "__main__":
     splitter = VideoSegmentFinder()
-    splitter.get_best_segment_frames("../tests/videos/input_2.mp4")
+    splitter.get_best_segment_frames("../../tests/videos/input_2.mp4")
