@@ -5,6 +5,10 @@ setup(
     version='0.0.1',
     packages=find_packages(where='src'),
     package_dir={'': 'src'},
+    package_data={
+        'lecture_video_to_pdf': ['fonts/*.ttf'],
+    },
+    include_package_data=True,
     install_requires=[
         # Add other dependencies here
         'appdirs==1.4.4',

@@ -2,6 +2,7 @@ import os
 import cv2
 from fpdf import FPDF
 import tempfile
+import pkg_resources
 
 from .subtitle_webvtt_parser import SubtitleWebVTTParser
 from .subtitle_segment_finder import SubtitleSegmentFinder
@@ -40,7 +41,11 @@ class ContentSegmentPdfBuilder:
         """
         with tempfile.TemporaryDirectory() as temp_dir_path:
             pdf = FPDF()
-            pdf.add_font("DejaVu", "", "fonts/DejaVuSansCondensed.ttf", uni=True)
+
+            # font_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'fonts')
+            # font_file = os.path.join(font_dir, 'DejaVuSansCondensed.ttf')
+            # print(font_file)
+            # pdf.add_font("DejaVu", "", font_file, uni=True)
 
             for i in range(0, len(pages)):
                 # Temporarily save the frames
@@ -54,7 +59,7 @@ class ContentSegmentPdfBuilder:
 
                 # Add the captions if exist
                 if pages[i].text is not None:
-                    pdf.set_font("DejaVu", "", 12)
+                    pdf.set_font("helvetica", "", 12)
                     pdf.multi_cell(0, 10, pages[i].text)
 
             pdf.output(output_filepath, "F")
